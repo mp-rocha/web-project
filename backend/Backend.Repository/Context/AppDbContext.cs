@@ -43,6 +43,16 @@ namespace Backend.Repository.Context
                 .IsRequired()
                 .HasColumnName("Preço");
 
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Description)
+                .HasColumnType("nvarchar(300)")
+                .HasColumnName("Descrição");
+            
+            modelBuilder.Entity<Product>()
+                .Property(p => p.ImageUrl)
+                .HasColumnType("nvarchar(300)")
+                .HasColumnName("Imagem");
+
         }
     }
 }

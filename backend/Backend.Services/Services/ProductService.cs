@@ -23,6 +23,9 @@ namespace Backend.Services.Services
 
         public Product Create(Product obj)
         {
+            obj.DateCreated = DateTime.Now;
+            obj.DateUpdate = DateTime.Now;
+
             var product =_unitOfWork.ProductRepository.Create(obj);
             _unitOfWork.Commit();
             return product;
@@ -55,6 +58,7 @@ namespace Backend.Services.Services
 
             entity.Name = obj.Name;
             entity.Price = obj.Price;
+            entity.DateUpdate = DateTime.Now;
 
             _unitOfWork.ProductRepository.UpdateAsync(entity);
             _unitOfWork.Commit();

@@ -25,7 +25,6 @@ C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debu
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.AssemblyInfoInputs.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.AssemblyInfo.cs
-C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.csproj.CoreCompileInputs.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.csproj.CopyComplete
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.dll
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.pdb
@@ -46,3 +45,4 @@ C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.Repository\obj\Deb
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.dll
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.pdb
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.genruntimeconfig.cache
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Repository\obj\Debug\netcoreapp3.1\Backend.Repository.csproj.CoreCompileInputs.cache

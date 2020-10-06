@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gN3x/+X0RqPPkvPbxxeQmQCg4WZKMZqDzz6NjUqsIFgrI3vIndCrhbUhDTkel4d5WGa709yldKzwmHV/aRPYew==",
+  "dgSpecHash": "ueTyUlmCh8dc7d7k0KDU6EQBLjrDgg6cjBfh2C0ndTVRg7T+VoeMgSs8FD12wi0edJVqCruXNJj1dgJuiJsOPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj",
+  "projectFilePath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\marcos\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
+    "C:\\Users\\marcos\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
@@ -78,7 +80,7 @@
     "C:\\Users\\marcos\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\marcos\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\marcos\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",

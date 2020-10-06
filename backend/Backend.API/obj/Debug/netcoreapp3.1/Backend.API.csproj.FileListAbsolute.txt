@@ -311,8 +311,6 @@ C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netco
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.AssemblyInfoInputs.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.AssemblyInfo.cs
-C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.csproj.CoreCompileInputs.cache
-C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.RazorTargetAssemblyInfo.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.csproj.CopyComplete
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\staticwebassets\Backend.API.StaticWebAssets.Manifest.cache
@@ -481,3 +479,7 @@ C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.API\obj\Debug\netc
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.dll
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.pdb
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.genruntimeconfig.cache
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.csproj.CoreCompileInputs.cache
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.MvcApplicationPartsAssemblyInfo.cache
