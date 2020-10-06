@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YLgTudsD2x/afaiKYiSFDI1T9Rc+6MG+Lpj1QlN/s4220gwuJjAWoS0BnJ0YaowsSlznTGCA4XtC1bVv7yAfAA==",
+  "dgSpecHash": "EEUFN7cJGKPQ4udO1W1IwfdrNMosxek/KQSOCt8hAKzzax3WbeLHpmMfsy8yPw26utcKsHvDlAHHyq47SOwolQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.API\\Backend.API.csproj",
+  "projectFilePath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.API\\Backend.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marcos\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\marcos\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

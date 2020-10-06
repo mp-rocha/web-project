@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.API\\Backend.API.csproj": {}
+    "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.API\\Backend.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.API\\Backend.API.csproj": {
+    "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.API\\Backend.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.API\\Backend.API.csproj",
+        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.API\\Backend.API.csproj",
         "projectName": "Backend.API",
-        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.API\\Backend.API.csproj",
+        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.API\\Backend.API.csproj",
         "packagesPath": "C:\\Users\\marcos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.API\\obj\\",
+        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,11 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Repository\\Backend.Repository.csproj": {
-                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Repository\\Backend.Repository.csproj"
+              "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Repository\\Backend.Repository.csproj": {
+                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Repository\\Backend.Repository.csproj"
               },
-              "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Services\\Backend.Services.csproj": {
-                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Services\\Backend.Services.csproj"
+              "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Services\\Backend.Services.csproj": {
+                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Services\\Backend.Services.csproj"
               }
             }
           }
@@ -114,14 +114,14 @@
         }
       }
     },
-    "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj": {
+    "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj",
         "projectName": "Backend.Domain",
-        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj",
+        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj",
         "packagesPath": "C:\\Users\\marcos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\obj\\",
+        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -202,14 +202,14 @@
         }
       }
     },
-    "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Repository\\Backend.Repository.csproj": {
+    "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Repository\\Backend.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Repository\\Backend.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Repository\\Backend.Repository.csproj",
         "projectName": "Backend.Repository",
-        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Repository\\Backend.Repository.csproj",
+        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Repository\\Backend.Repository.csproj",
         "packagesPath": "C:\\Users\\marcos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Repository\\obj\\",
+        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -225,8 +225,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj": {
-                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj"
+              "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj": {
+                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj"
               }
             }
           }
@@ -294,14 +294,14 @@
         }
       }
     },
-    "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Services\\Backend.Services.csproj": {
+    "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Services\\Backend.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Services\\Backend.Services.csproj",
+        "projectUniqueName": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Services\\Backend.Services.csproj",
         "projectName": "Backend.Services",
-        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Services\\Backend.Services.csproj",
+        "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Services\\Backend.Services.csproj",
         "packagesPath": "C:\\Users\\marcos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Services\\obj\\",
+        "outputPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -317,8 +317,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj": {
-                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-project\\backend\\Backend.Domain\\Backend.Domain.csproj"
+              "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj": {
+                "projectPath": "C:\\Users\\marcos\\Documents\\GitHub\\web-projects\\backend\\Backend.Domain\\Backend.Domain.csproj"
               }
             }
           }
