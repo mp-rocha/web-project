@@ -11,9 +11,11 @@ using Backend.Services.Services;
 using Backend.Domain.Interfaces.IService;
 using AutoMapper;
 using Backend.Domain.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.API.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

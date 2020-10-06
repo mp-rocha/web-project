@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Backend.Domain.DTOs.Mappings;
@@ -9,6 +10,7 @@ using Backend.Domain.Interfaces.IService;
 using Backend.Repository.Context;
 using Backend.Repository.Repository;
 using Backend.Services.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +21,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace Backend.API
@@ -58,6 +61,27 @@ namespace Backend.API
                         Url = new Uri("https://github.com/mp-rocha")
                     }
                 });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Insira - Bearer + Codigo JWT",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] { }
+                    }
+                });
+
             });
 
             services.AddControllers();
@@ -68,6 +92,26 @@ namespace Backend.API
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+
+            //JWT
+            //adiciona o manipulador de autenticacao e define o 
+            //esquema de autenticacao usado : Bearer
+            //valida o emissor, a audiencia e a chave
+            //usando a chave secreta valida a assinatura
+            services.AddAuthentication(
+                JwtBearerDefaults.AuthenticationScheme).
+                AddJwtBearer(options =>
+                 options.TokenValidationParameters = new TokenValidationParameters
+                 {
+                     ValidateIssuer = true,
+                     ValidateAudience = true,
+                     ValidateLifetime = true,
+                     ValidAudience = Configuration["TokenConfiguration:Audience"],
+                     ValidIssuer = Configuration["TokenConfiguration:Issuer"],
+                     ValidateIssuerSigningKey = true,
+                     IssuerSigningKey = new SymmetricSecurityKey(
+                         Encoding.UTF8.GetBytes(Configuration["Jwt:key"]))
+                 });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IProductService, ProductService>();

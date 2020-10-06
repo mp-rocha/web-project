@@ -490,6 +490,7 @@ C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netco
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.csproj.CoreCompileInputs.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.MvcApplicationPartsAssemblyInfo.cache
