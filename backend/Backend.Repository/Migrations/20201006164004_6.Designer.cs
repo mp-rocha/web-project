@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200921164128_quatro")]
-    partial class quatro
+    [Migration("20201006164004_6")]
+    partial class _6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,20 @@ namespace Backend.Repository.Migrations
                         .HasColumnName("Categoria")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(20);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnName("Descrição")
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnName("Imagem")
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("Name")
                         .IsRequired()
