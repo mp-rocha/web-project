@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Backend.Repository.Context
@@ -16,12 +17,28 @@ namespace Backend.Repository.Context
         }
 
         public DbSet<Product> Produtos { get; set; }
+        public DbSet<AnaliseQuimica> AnalisesQuimicas {get; set;}
 
         // Fluent API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            // Analise Quimica
+
+            modelBuilder.Entity<AnaliseQuimica>()
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<AnaliseQuimica>()
+                .Property(p => p.CTC);
+
+            modelBuilder.Entity<AnaliseQuimica>()
+                .Property(p => p.SatBases);
+
+            modelBuilder.Entity<AnaliseQuimica>()
+                .Property(p => p.UserId);
+
+            // Product
             modelBuilder.Entity<Product>()
                 .HasKey(p => p.Id);
 

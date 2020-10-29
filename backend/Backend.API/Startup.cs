@@ -115,6 +115,7 @@ namespace Backend.API
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IAnaliseQuimicaService, AnaliseQuimicaService>();
 
             services.AddCors(options =>
             options.AddPolicy("EnableCORS", builder =>

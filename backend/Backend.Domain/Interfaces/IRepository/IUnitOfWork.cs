@@ -7,6 +7,7 @@ namespace Backend.Domain.Interfaces.IRepository
     public interface IUnitOfWork
     {
         IProductRepository ProductRepository { get; }
+        IAnaliseQuimicaRepository AnaliseQuimicaRepository { get; }
 
         void Commit();
     }

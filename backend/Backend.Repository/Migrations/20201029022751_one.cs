@@ -3,10 +3,47 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Backend.Repository.Migrations
 {
-    public partial class _1 : Migration
+    public partial class one : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AnalisesQuimicas",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: true),
+                    Latitude = table.Column<long>(nullable: true),
+                    Longitude = table.Column<long>(nullable: true),
+                    Fosforo = table.Column<decimal>(nullable: true),
+                    MO = table.Column<decimal>(nullable: true),
+                    Carbono = table.Column<decimal>(nullable: true),
+                    pH = table.Column<decimal>(nullable: true),
+                    pHTampao = table.Column<decimal>(nullable: true),
+                    SatBases = table.Column<decimal>(nullable: true),
+                    CTC = table.Column<decimal>(nullable: true),
+                    Potassio = table.Column<decimal>(nullable: true),
+                    Calcio = table.Column<decimal>(nullable: true),
+                    Magnesio = table.Column<decimal>(nullable: true),
+                    Enxofre = table.Column<decimal>(nullable: true),
+                    Boro = table.Column<decimal>(nullable: true),
+                    Cobre = table.Column<decimal>(nullable: true),
+                    Ferro = table.Column<decimal>(nullable: true),
+                    Manganes = table.Column<decimal>(nullable: true),
+                    Zinco = table.Column<decimal>(nullable: true),
+                    RelacaoCA = table.Column<decimal>(nullable: true),
+                    RelacaoMg = table.Column<decimal>(nullable: true),
+                    Argila = table.Column<decimal>(nullable: true),
+                    Silte = table.Column<decimal>(nullable: true),
+                    Areia = table.Column<decimal>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AnalisesQuimicas", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -212,6 +249,9 @@ namespace Backend.Repository.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AnalisesQuimicas");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

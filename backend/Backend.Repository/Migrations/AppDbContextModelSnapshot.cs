@@ -19,6 +19,95 @@ namespace Backend.Repository.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Backend.Domain.Entities.AnaliseQuimica", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Areia")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Argila")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Boro")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("CTC")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Calcio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Carbono")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Cobre")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Enxofre")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Ferro")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Fosforo")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<long>("Latitude")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Longitude")
+                        .HasColumnType("bigint");
+
+                    b.Property<decimal>("MO")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Magnesio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Manganes")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Potassio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("RelacaoCA")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("RelacaoMg")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SatBases")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Silte")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Zinco")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("pH")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("pHTampao")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AnalisesQuimicas");
+                });
+
             modelBuilder.Entity("Backend.Domain.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")

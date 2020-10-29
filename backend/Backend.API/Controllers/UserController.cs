@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Backend.Domain.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -30,14 +31,17 @@ namespace Backend.API.Controllers
             _configuration = configuration;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return ":: Acessado em : " + DateTime.Now.ToLongDateString() + " :: ";
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return ":: Acessado em : " + DateTime.Now.ToLongDateString() + " :: " + " por Id: " + currentUserID;
         }
 
         [HttpPost]
-        public async Task<ActionResult> RegisterUser([FromBody] UserDTO model)
+        public async Task<ActionResult> RegisterUser([FromForm] UserDTO model)
         {
             var user = new IdentityUser
             {
@@ -58,7 +62,7 @@ namespace Backend.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult> Login([FromBody] UserDTO userInfo)
+        public async Task<ActionResult> Login([FromForm] UserDTO userInfo)
         {
             var result = await _signInManager.PasswordSignInAsync(userInfo.Email,
                 userInfo.Password, isPersistent: false, lockoutOnFailure: false);

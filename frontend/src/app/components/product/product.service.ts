@@ -1,9 +1,12 @@
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Product } from "./product.model";
 import { Observable, EMPTY } from "rxjs";
 import { map, catchError } from "rxjs/operators";
+
+var token = '';
+var httpOptions = {headers: new HttpHeaders({"Content-Type": "application/json"})}
 
 @Injectable({
   providedIn: "root",
@@ -22,6 +25,12 @@ export class ProductService {
     });
   }
 
+  montaHeaderToken(){
+    token = localStorage.getItem("jwt");
+    console.log('jwt header token' + token);
+    httpOptions = {headers: new HttpHeaders({"Authorization": "Bearer " + token, "Content-Type": "application/json"})}
+  }
+
   create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product).pipe(
       map((obj) => obj),
@@ -30,7 +39,9 @@ export class ProductService {
   }
 
   read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl).pipe(
+    this.montaHeaderToken();
+    console.log(httpOptions.headers);
+    return this.http.get<Product[]>(this.baseUrl, httpOptions).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
