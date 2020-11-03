@@ -36,3 +36,4 @@ C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.Domain\obj\Debug\n
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.Domain\obj\Debug\netcoreapp3.1\Backend.Domain.pdb
 C:\Users\marcos\Documents\GitHub\web-projects\backend\Backend.Domain\obj\Debug\netcoreapp3.1\Backend.Domain.genruntimeconfig.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Domain\obj\Debug\netcoreapp3.1\Backend.Domain.csproj.CoreCompileInputs.cache
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.Domain\obj\Debug\netcoreapp3.1\Backend.Domain.csprojAssemblyReference.cache

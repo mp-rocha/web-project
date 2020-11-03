@@ -33,63 +33,48 @@ namespace Backend.API.Controllers
 
         // GET: api/Products 
         [HttpGet]
-        public async Task<IEnumerable<ProductDTO>> GetProduct()
+        public async Task<Response<IEnumerable<ProductDTO>>> GetProduct()
         {
             var product = await _productService.ListAllAsync();
-            var productDTO = _mapper.Map<IEnumerable<ProductDTO>>(product);
-            return productDTO;
+            var productDTO = _mapper.Map<IEnumerable<ProductDTO>>(product.Data);;
+            return Response<IEnumerable<ProductDTO>>.GetResult(product.Code, product.Msg, productDTO);
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDTO>> GetProductById(Guid id)
+        public async Task<Response<ProductDTO>> GetProductById(Guid id)
         {
-
             var product = await _productService.GetByIdAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            var productDTO = _mapper.Map<ProductDTO>(product);
-
-            return productDTO;
-        }
-
-        // PUT: api/Products/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(Guid id, ProductDTO productDTO)
-        {
-            if (id != productDTO.Id)
-            {
-                return BadRequest();
-            }
-
-            var product = _mapper.Map<Product>(productDTO);
-
-            await _productService.UpdateAsync(product);
-            return Ok();
+            var productDTO = _mapper.Map<ProductDTO>(product.Data);
+            return Response<ProductDTO>.GetResult(product.Code, product.Msg, productDTO);
         }
 
         // POST: api/Products
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public ActionResult<Product> PostProduct(ProductDTO productDTO)
+        public Response<Product> PostProduct(ProductDTO productDTO)
         {
-            var product = _mapper.Map<Product>(productDTO);
-            _productService.Create(product);
-            return Ok();
-          
+            var product = _productService.Create(_mapper.Map<Product>(productDTO));
+            return Response<Product>.GetResult(product.Code, product.Msg, product.Data);
+        }
+
+        // PUT: api/Products/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPut]
+        public async Task<Response<Product>> PutProduct(ProductDTO productDTO)
+        {
+            var product = await _productService.UpdateAsync(_mapper.Map<Product>(productDTO));
+            return Response<Product>.GetResult(product.Code, product.Msg, product.Data);
         }
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ProductDTO>> DeleteProduct(Guid id)
+        public async Task<Response<Product>> DeleteProduct(Guid id)
         {
-            await _productService.Remove(id);
-            return Ok();
+            var product = await _productService.Remove(id);
+            return Response<Product>.GetResult(product.Code, product.Msg, product.Data);
         }
     }
 }

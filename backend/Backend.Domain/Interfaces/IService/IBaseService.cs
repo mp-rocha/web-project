@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Backend.Domain.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,10 @@ namespace Backend.Domain.Interfaces.IService
 {
     public interface IBaseService<T> where T : class
     {
-        Task<IEnumerable<T>> ListAllAsync();
-        Task<T> GetByIdAsync(Guid id);
-        T Create(T obj);
-        Task<T> UpdateAsync(T obj);
-        Task<T> Remove(Guid id);
+        Task<Response<IEnumerable<T>>> ListAllAsync();
+        Task<Response<T>> GetByIdAsync(Guid id);
+        Response<T> Create(T obj);
+        Task<Response<T>> UpdateAsync(T obj);
+        Task<Response<T>> Remove(Guid id);
     }
 }

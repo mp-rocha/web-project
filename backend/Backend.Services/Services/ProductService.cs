@@ -11,7 +11,6 @@ namespace Backend.Services.Services
 {
     public class ProductService : IProductService
     {
-
         protected readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _configuration;
 
@@ -21,49 +20,82 @@ namespace Backend.Services.Services
             _configuration = configuration;
         }
 
-        public Product Create(Product obj)
+        public Response<Product> Create(Product obj)
         {
+            obj.Id = Guid.NewGuid();
             obj.DateCreated = DateTime.Now;
             obj.DateUpdate = DateTime.Now;
 
             var product =_unitOfWork.ProductRepository.Create(obj);
             _unitOfWork.Commit();
-            return product;
+            return Response<Product>.GetResult(200, "OK", product);
         }
 
-        public async Task<Product> GetByIdAsync(Guid id)
+        public async Task<Response<Product>> GetByIdAsync(Guid id)
         {
-            return await _unitOfWork.ProductRepository.GetByIdAsync(id);
-        }
+            var product = await _unitOfWork.ProductRepository.GetByIdAsync(id);
 
-        public async Task<IEnumerable<Product>> ListAllAsync()
-        {
-            return await _unitOfWork.ProductRepository.ListAllAsync();
-        }
-
-        public async Task<Product> Remove(Guid id)
-        {
-            var entity = await _unitOfWork.ProductRepository.GetByIdAsync(id);
-            if (entity != null)
+            if (product != null)
             {
-               _unitOfWork.ProductRepository.Remove(entity);
-                _unitOfWork.Commit();
+                return Response<Product>.GetResult(200, "OK", product);
             }
-            return entity;
+            else
+            {
+                return Response<Product>.GetResult(200, "Não existe produto com o ID informado!", null);
+            }
+            
         }
 
-        public async Task<Product> UpdateAsync(Product obj)
+        public async Task<Response<IEnumerable<Product>>> ListAllAsync()
         {
-            var entity = await _unitOfWork.ProductRepository.GetByIdAsync(obj.Id);
+            var products = await _unitOfWork.ProductRepository.ListAllAsync();
 
-            entity.Name = obj.Name;
-            entity.Price = obj.Price;
-            entity.DateUpdate = DateTime.Now;
+            if (products.Count != 0)
+            {
+                return Response<IEnumerable<Product>>.GetResult(200, "OK", products);
+            }
+            else
+            {
+                return Response<IEnumerable<Product>>.GetResult(200, "Não há registros na base de dados!", products);
+            }
+            
+        }
 
-            _unitOfWork.ProductRepository.UpdateAsync(entity);
-            _unitOfWork.Commit();
+        public async Task<Response<Product>> Remove(Guid id)
+        {
+            var product = await _unitOfWork.ProductRepository.GetByIdAsync(id);
 
-            return entity;
+            if (product != null)
+            {
+                _unitOfWork.ProductRepository.Remove(product);
+                _unitOfWork.Commit();
+                return Response<Product>.GetResult(200, "OK", product);
+            }
+            else
+            {
+                return Response<Product>.GetResult(200, "Não existe produto com o ID informado!", product);
+            }
+        }
+
+        public async Task<Response<Product>> UpdateAsync(Product obj)
+        {
+            var product = await _unitOfWork.ProductRepository.GetByIdAsync(obj.Id);
+
+            if (product != null)
+            {
+                product.Name = obj.Name;
+                product.Price = obj.Price;
+                product.DateUpdate = DateTime.Now;
+
+                _unitOfWork.ProductRepository.UpdateAsync(product);
+                _unitOfWork.Commit();
+
+                return Response<Product>.GetResult(200, "OK", product);
+            }
+            else
+            {
+                return Response<Product>.GetResult(200, "Não existe produto com o ID informado!", product);
+            }
         }
     }
 }

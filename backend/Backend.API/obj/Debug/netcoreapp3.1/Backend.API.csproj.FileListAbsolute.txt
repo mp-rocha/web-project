@@ -494,3 +494,12 @@ C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netco
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.csproj.CoreCompileInputs.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\obj\Debug\netcoreapp3.1\Backend.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\EPPlus.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\marcos\Documents\GitHub\web-project\backend\Backend.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll

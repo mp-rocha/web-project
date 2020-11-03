@@ -9,25 +9,30 @@ using Backend.Domain.Interfaces.IService;
 using Backend.Repository.Context;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.API.Controllers
 {
+    //[Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class AnaliseQuimicaController : ControllerBase
     {
         public readonly IAnaliseQuimicaService _analiseService;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public AnaliseQuimicaController(IAnaliseQuimicaService analiseService)
+        public AnaliseQuimicaController(IAnaliseQuimicaService analiseService, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _analiseService = analiseService;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
 
         [HttpGet("RecCalcario")]
-        public List<decimal> GetResultado(decimal v2, decimal PRNT)
+        public Response<List<decimal>> GetResultado(decimal v2, decimal PRNT)
         {
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = new Guid(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
@@ -37,57 +42,46 @@ namespace Backend.API.Controllers
         }
 
         [HttpGet("AnaliseByUser")]
-        public async Task<IEnumerable<AnaliseQuimica>> GetAnaliseByUserId()
+        public async Task<Response<IEnumerable<AnaliseQuimica>>> GetAnaliseByUserId()
         {
-            ClaimsPrincipal currentUser = this.User;
-            var currentUserID = new Guid(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            //ClaimsPrincipal currentUser = this.User;
+            //var currentUserID = new Guid(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            return await _analiseService.GetAnaliseByUserId(currentUserID);
+            var userId = new Guid(_userManager.GetUserId(HttpContext.User));
+            return await _analiseService.GetAnaliseByUserId(userId);
         }
 
         [HttpGet]
-        public async Task<IEnumerable<AnaliseQuimica>> GetAllAnaliseListAsync()
+        public async Task<Response<IEnumerable<AnaliseQuimica>>> GetAllAnaliseListAsync()
         {
-           var analises = await _analiseService.ListAllAsync();
-           return analises;
+           return await _analiseService.ListAllAsync();
         }
 
         [HttpGet("id")]
-        public async Task<ActionResult<AnaliseQuimica>> GetAnaliseByIdAsync([FromForm] Guid id)
+        public async Task<Response<AnaliseQuimica>> GetAnaliseByIdAsync(Guid id)
         {
-            var analise = await _analiseService.GetByIdAsync(id);
-            if (analise != null)
-            {
-                return Ok();
-            }
-            else
-            {
-                return NotFound();
-            }
+            return await _analiseService.GetByIdAsync(id);
         }
 
         [HttpPost]
-        public ActionResult<AnaliseQuimica> SalvarAnaliseBanco([FromForm] AnaliseQuimica analise)
+        public Response<AnaliseQuimica> SalvarAnaliseBanco([FromForm] AnaliseQuimica analise)
         {
-            ClaimsPrincipal currentUser = this.User;
-            var currentUserID = new Guid(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            //ClaimsPrincipal currentUser = this.User;
+            //var currentUserID = new Guid(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            _analiseService.CreateByUser(analise, currentUserID);
-            return Ok();
+            return _analiseService.CreateByUser(analise);
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutAnalise([FromForm]AnaliseQuimica analiseQuimica)
+        public async Task<Response<AnaliseQuimica>> PutAnalise([FromForm]AnaliseQuimica analiseQuimica)
         {
-            await _analiseService.UpdateAsync(analiseQuimica);
-            return Ok();
+            return await _analiseService.UpdateAsync(analiseQuimica);
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<AnaliseQuimica> DeleteAnalise([FromForm] Guid id)
+        public async Task<Response<AnaliseQuimica>> DeleteAnalise([FromForm] Guid id)
         {
-            _analiseService.Remove(id);
-            return Ok();
+            return await _analiseService.Remove(id);
         }
     }
 }

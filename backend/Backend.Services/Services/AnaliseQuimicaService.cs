@@ -1,7 +1,9 @@
 ﻿using Backend.Domain.Entities;
 using Backend.Domain.Interfaces.IRepository;
 using Backend.Domain.Interfaces.IService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -14,79 +16,84 @@ namespace Backend.Services.Services
     public class AnaliseQuimicaService : IAnaliseQuimicaService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AnaliseQuimicaService(IUnitOfWork unitOfWork)
+        public AnaliseQuimicaService(IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public AnaliseQuimica Create(AnaliseQuimica obj)
+        public Response<AnaliseQuimica> Create(AnaliseQuimica obj)
         {
             obj.DateCreated = DateTime.Now;
             obj.DateUpdate = DateTime.Now;
 
-            var analise = _unitOfWork.AnaliseQuimicaRepository.Create(obj);
+            var dados = _unitOfWork.AnaliseQuimicaRepository.Create(obj);
             _unitOfWork.Commit();
 
-            return analise;
+            return Response<AnaliseQuimica>.GetResult(200, "OK", dados);
         }
 
-        public async Task<AnaliseQuimica> GetByIdAsync(Guid id)
+        public async Task<Response<AnaliseQuimica>> GetByIdAsync(Guid id)
         {
-            return await _unitOfWork.AnaliseQuimicaRepository.GetByIdAsync(id);
+            var dados = await _unitOfWork.AnaliseQuimicaRepository.GetByIdAsync(id);
+            return Response<AnaliseQuimica>.GetResult(200, "OK", dados);
         }
 
-        public async Task<IEnumerable<AnaliseQuimica>> ListAllAsync()
+        public async Task<Response<IEnumerable<AnaliseQuimica>>> ListAllAsync()
         {
-            return await _unitOfWork.AnaliseQuimicaRepository.ListAllAsync();
+            var dados = await _unitOfWork.AnaliseQuimicaRepository.ListAllAsync();
+            return Response<IEnumerable<AnaliseQuimica>>.GetResult(200, "OK", dados);
         }
 
-        public async Task<AnaliseQuimica> Remove(Guid id)
+        public async Task<Response<AnaliseQuimica>> Remove(Guid id)
         {
-            var entity = await _unitOfWork.AnaliseQuimicaRepository.GetByIdAsync(id);
-            if (entity != null)
+            var dados = await _unitOfWork.AnaliseQuimicaRepository.GetByIdAsync(id);
+            if (dados != null)
             {
-                _unitOfWork.AnaliseQuimicaRepository.Remove(entity);
+                _unitOfWork.AnaliseQuimicaRepository.Remove(dados);
                 _unitOfWork.Commit();
             }
-            return entity;
+            return Response<AnaliseQuimica>.GetResult(200, "OK", dados);
         }
 
-        public async Task<AnaliseQuimica> UpdateAsync(AnaliseQuimica obj)
+        public async Task<Response<AnaliseQuimica>> UpdateAsync(AnaliseQuimica obj)
         {
-            var entity = await _unitOfWork.AnaliseQuimicaRepository.GetByIdAsync(obj.Id);
+            var dados = await _unitOfWork.AnaliseQuimicaRepository.GetByIdAsync(obj.Id);
 
-            entity.DateUpdate = DateTime.Now;
-            entity.Areia = obj.Areia;
-            entity.Argila = obj.Argila;
-            entity.Boro = obj.Boro;
-            entity.Calcio = obj.Calcio;
-            entity.Carbono = obj.Carbono;
-            entity.Cobre = obj.Cobre;
-            entity.CTC = obj.CTC;
-            entity.Enxofre = obj.Enxofre;
-            entity.Ferro = obj.Ferro;
-            entity.Fosforo = obj.Fosforo;
-            entity.Latitude = obj.Latitude;
-            entity.Longitude = obj.Longitude;
-            entity.Magnesio = obj.Magnesio;
-            entity.Manganes = obj.Manganes;
-            entity.MO = obj.MO;
-            entity.pH = obj.pH;
-            entity.pHTampao = obj.pHTampao;
-            entity.Potassio = obj.Potassio;
-            entity.RelacaoCA = obj.RelacaoCA;
-            entity.RelacaoMg = obj.RelacaoMg;
-            entity.SatBases = obj.SatBases;
-            entity.Silte = obj.Silte;
-            entity.Zinco = obj.Zinco;
+            dados.DateUpdate = DateTime.Now;
+            dados.Areia = obj.Areia;
+            dados.Argila = obj.Argila;
+            dados.Boro = obj.Boro;
+            dados.Calcio = obj.Calcio;
+            dados.Carbono = obj.Carbono;
+            dados.Cobre = obj.Cobre;
+            dados.CTC = obj.CTC;
+            dados.Enxofre = obj.Enxofre;
+            dados.Ferro = obj.Ferro;
+            dados.Fosforo = obj.Fosforo;
+            dados.Latitude = obj.Latitude;
+            dados.Longitude = obj.Longitude;
+            dados.Magnesio = obj.Magnesio;
+            dados.Manganes = obj.Manganes;
+            dados.MO = obj.MO;
+            dados.pH = obj.pH;
+            dados.pHTampao = obj.pHTampao;
+            dados.Potassio = obj.Potassio;
+            dados.RelacaoCA = obj.RelacaoCA;
+            dados.RelacaoMg = obj.RelacaoMg;
+            dados.SatBases = obj.SatBases;
+            dados.Silte = obj.Silte;
+            dados.Zinco = obj.Zinco;
 
-            _unitOfWork.AnaliseQuimicaRepository.UpdateAsync(entity);
+            _unitOfWork.AnaliseQuimicaRepository.UpdateAsync(dados);
             _unitOfWork.Commit();
-            return entity;
+
+            return Response<AnaliseQuimica>.GetResult(200, "OK", dados);
         }
 
-        public List<decimal> RecCalagem(decimal v2, decimal PRNT, Guid currentUserID)
+        public Response<List<decimal>> RecCalagem(decimal v2, decimal PRNT, Guid currentUserID)
         {
             List<decimal> resultado = new List<decimal>
             {
@@ -101,24 +108,44 @@ namespace Backend.Services.Services
                 resultado.Add(NC);
             }
 
-            return resultado;
+            return Response<List<decimal>>.GetResult(200, "OK", resultado);
         }
 
-        public void CreateByUser(AnaliseQuimica analise, Guid id)
+        public Response<AnaliseQuimica> CreateByUser(AnaliseQuimica analise)
         {
             analise.DateCreated = DateTime.Now;
             analise.DateUpdate = DateTime.Now;
             analise.Id = Guid.NewGuid();
-
-            analise.UserId = id;
+            var userId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            analise.UserId = userId;
 
             _unitOfWork.AnaliseQuimicaRepository.CreateByUser(analise);
             _unitOfWork.Commit();
+
+            return Response<AnaliseQuimica>.GetResult(200, "OK", null);
+
         }
 
-        public async Task<IEnumerable<AnaliseQuimica>> GetAnaliseByUserId(Guid UserId)
+        public async Task<Response<IEnumerable<AnaliseQuimica>>> GetAnaliseByUserId(Guid UserId)
         {
-            return await _unitOfWork.AnaliseQuimicaRepository.GetAnaliseByUserId(UserId);
+            var dados = await _unitOfWork.AnaliseQuimicaRepository.GetAnaliseByUserId(UserId);
+            return Response<IEnumerable<AnaliseQuimica>>.GetResult(200, "OK", dados);
+        }
+
+        public Response<IEnumerable<AnaliseQuimica>> CreateListByUser(List<AnaliseQuimica> analise, Guid id)
+        {
+            foreach(AnaliseQuimica obj in analise)
+            {
+                obj.DateCreated = DateTime.Now;
+                obj.DateUpdate = DateTime.Now;
+                obj.Id = Guid.NewGuid();
+                obj.UserId = id;
+            }
+
+            _unitOfWork.AnaliseQuimicaRepository.CreateListByUser(analise);
+            _unitOfWork.Commit();
+
+            return Response<IEnumerable<AnaliseQuimica>>.GetResult(200, "OK", null);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Backend.Domain.Interfaces.IRepository
     public interface IAnaliseQuimicaRepository : IBaseRepository<AnaliseQuimica>
     {
         void CreateByUser(AnaliseQuimica entity);
+        void CreateListByUser(List<AnaliseQuimica> entity);
         Task<IEnumerable<AnaliseQuimica>> GetAnaliseByUserId(Guid UserId);
     }
 }

@@ -21,6 +21,11 @@ namespace Backend.Repository.Repository
             _context.Set<AnaliseQuimica>().Add(entity);
         }
 
+        public void CreateListByUser(List<AnaliseQuimica> entity)
+        {
+            _context.Set<AnaliseQuimica>().AddRange(entity);
+        }
+
         public async Task<IEnumerable<AnaliseQuimica>> GetAnaliseByUserId(Guid UserId)
         {
             return await _context.Set<AnaliseQuimica>().Where(x => x.UserId == UserId).ToListAsync();

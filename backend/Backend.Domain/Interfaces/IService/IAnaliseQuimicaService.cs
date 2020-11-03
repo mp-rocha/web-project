@@ -8,8 +8,9 @@ namespace Backend.Domain.Interfaces.IService
 {
     public interface IAnaliseQuimicaService : IBaseService<AnaliseQuimica>
     {
-        List<decimal> RecCalagem(decimal v2, decimal PRNT, Guid currentUserID);
-        void CreateByUser(AnaliseQuimica analise, Guid id);
-        Task<IEnumerable<AnaliseQuimica>> GetAnaliseByUserId(Guid UserId);
+        Response<List<decimal>> RecCalagem(decimal v2, decimal PRNT, Guid currentUserID);
+        Response<AnaliseQuimica> CreateByUser(AnaliseQuimica analise);
+        Response<IEnumerable<AnaliseQuimica>> CreateListByUser(List<AnaliseQuimica> analise, Guid id);
+        Task<Response<IEnumerable<AnaliseQuimica>>> GetAnaliseByUserId(Guid UserId);
     }
 }
